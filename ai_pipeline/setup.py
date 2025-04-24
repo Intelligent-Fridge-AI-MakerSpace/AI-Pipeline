@@ -27,7 +27,7 @@ setup(
             'camera_processor = ai_pipeline.camera_processor:main',
             'model_processor = ai_pipeline.model_processor:main',
             'streamer = ai_pipeline.streamer:main',
-            'collator = ai_pipeline.streamer:main',
+            'collator = ai_pipeline.collator:main',
         ],
     },
 )

@@ -1,4 +1,5 @@
 std_msgs/Header header
+uint8 camera_id
 uint32 objects
 uint32[] xmins
 uint32[] ymins
@@ -7,4 +8,4 @@ uint32[] ymaxs
 float32[] confs
 string[] tags
 uint32[] ids
-ai_msgs/Status status
+string status

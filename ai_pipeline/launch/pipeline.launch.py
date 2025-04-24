@@ -6,7 +6,7 @@ def create_pipeline_nodes(camera_id):
     width = 640
     height = 640
     fps = 30
-    ip_address = '192.168.209.23'
+    ip_address = '192.168.0.87'
     port = 8554
     stream_id = namespace
     model_name = 'yolo' if int(camera_id) % 2 == 0 else 'barcode'
@@ -72,7 +72,7 @@ def create_pipeline_nodes(camera_id):
     return [camera_processor_node, model_processor_node, streamer_node]
 
 def generate_launch_description():
-    camera_ids = [0, 1]
+    camera_ids = [0]
 
     signal_node = Node(
         package='ai_pipeline',
@@ -98,6 +98,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         signal_node,
-        *pipeline_nodes,
         collator_node,
+        *pipeline_nodes,
     ])

@@ -21,7 +21,7 @@ class Signal(Node):
                 self.status = 'IDLE'
             self.status_changed = False
         status_message = Status()
-        status_message.header = self.get_clock().now().to_msg()
+        status_message.header.stamp = self.get_clock().now().to_msg()
         status_message.status = self.status
         self.status_publisher.publish(status_message)
         self.status_changed = True
@@ -35,13 +35,15 @@ class Signal(Node):
                 self.status = 'END'
             self.status_changed = False
         except Exception as e:
-            self.get_logger().error(f"{e}")
+            pass
+            # self.get_logger().error(f"{e}")
 
     def on_release(self, key):
         try:
             self.get_logger().info(f'{key.char} RELEASED')
         except Exception as e:
-            self.get_logger().error(f"{e}")
+            pass
+            # self.get_logger().error(f"{e}")
 
 def main(args=None):
     r.init(args=args)
